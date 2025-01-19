@@ -1,0 +1,10 @@
+{
+    "name": "denison/crud-courses",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Denison\\CrudCourses\\": "src/"
+        }
+    },
+    "require": {}
+}
