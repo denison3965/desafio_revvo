@@ -2,7 +2,6 @@
 
 require_once "../../../../vendor/autoload.php";
 
-use App\config\ConnectionDB;
 use App\Repository\CourseRepositoryPostgress;
 use App\UseCases\CreateCourseUseCase;
 
