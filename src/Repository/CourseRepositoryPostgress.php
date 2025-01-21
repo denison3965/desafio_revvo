@@ -65,4 +65,13 @@ class CourseRepositoryPostgress implements CourseReporitoryInterface
 
     }
 
+    public function delete(string $id): bool {
+        $sql = "DELETE FROM courses WHERE id = ?";
+        $sanitized_id = htmlspecialchars($id, ENT_QUOTES, 'UTF-8');
+        
+        $statement = $this->connection->pdo->prepare($sql);
+        $statement->bindParam(1, $sanitized_id);
+        return $statement->execute();
+    }
+
 }

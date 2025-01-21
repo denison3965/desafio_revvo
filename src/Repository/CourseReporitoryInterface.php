@@ -15,4 +15,6 @@ interface CourseReporitoryInterface
     public function listAll(): array;
 
     public function update(string $id, CourseEntity $courseEntity): bool;
+
+    public function delete(string $id): bool;
 }
