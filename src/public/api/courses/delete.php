@@ -10,3 +10,5 @@ $useCase = new DeleteCourseUseCase(new CourseRepositoryPostgress());
 $out = $useCase->execute('3');
 
 var_dump($out);
+
+//TODO: FAZER FRONT

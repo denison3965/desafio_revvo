@@ -19,8 +19,35 @@ body {
     align-items: center;
     justify-content: center;
     border-radius: 20px;
+    position: relative;
+}
+
+.info-carousel {
+    position: absolute;
+    bottom: 130px;
+    left: 15%;
+    background-color: rgba(0, 0, 0, 0.723);
+    width: 300px;
+    padding: 15px;
+    color: rgb(214, 214, 214);
+}
+
+.info-carousel .tittle {
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+.info-carousel .description {
+    font-weight: lighter;
+
 }
 
 .main-container {
     min-height: 200px;
+    margin-inline: auto;
+    max-width: 1300px;
+}
+
+.add-new-course {
+    border: #757575 dashed 2px;
 }

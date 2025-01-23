@@ -16,9 +16,8 @@ class ConnectionDB {
 
     public function __construct() {
         $dns_pdo = "pgsql:host=$this->host;port=$this->port;dbname=$this->dbname";
-        $pdo = new PDO($dns_pdo, $this->user, $this->password);
+        $pdo = new PDO($dns_pdo,  $this->user, $this->password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $this->pdo = $pdo;
-        echo "Conexão com o PostgreSQL realizada com sucesso!";
     }
 }

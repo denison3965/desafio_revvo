@@ -11,7 +11,7 @@ $courses = $useCase->execute();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +20,20 @@ $courses = $useCase->execute();
 
     <link href="http://localhost:8080/assets/style.css" rel="stylesheet"/>
     <title>Lista de cursos</title>
+
+    <script>
+        function convertToBase64(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                objReader.onload = function(e) {
+                    document.getElementById('imageBase64').value = e.target.result;
+                };
+                objReader.readAsDataURL(file);
+            }
+        }
+    </script>
+
 </head>
 <body>
     <header class="py-3 border-bottom header-custumer">
@@ -40,9 +54,6 @@ $courses = $useCase->execute();
         </div>
         </div>
     </header>
-
-
-
     <div id="carouselExampleIndicators" class="carousel slide">
         <div class="carousel-indicators">
             <div class="carousel-inner">
@@ -53,12 +64,33 @@ $courses = $useCase->execute();
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
+                <div class="info-carousel">
+                    <div class="tittle">LOREM IPSUM</div>
+                    <div class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                    </div>
+                    <button type="button" class="btn btn-outline-light ms-3 mt-3"> VER CURSO</button>
+                </div>
                 <img style="object-fit: cover" height="400px" src="https://ejep.com.br/wp-content/uploads/2023/12/tipos-de-empreendedorismo.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
+                <div class="info-carousel">
+                    <div class="tittle">LOREM IPSUM</div>
+                    <div class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                    </div>
+                    <button type="button" class="btn btn-outline-light ms-3 mt-3"> VER CURSO</button>
+                </div>
                 <img style="object-fit: cover" height="400px"  src="https://ejep.com.br/wp-content/uploads/2023/12/tipos-de-empreendedorismo.png" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
+                <div class="info-carousel">
+                    <div class="tittle">LOREM IPSUM</div>
+                    <div class="description">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+                    </div>
+                    <button type="button" class="btn btn-outline-light ms-3 mt-3"> VER CURSO</button>
+                </div>
                 <img style="object-fit: cover" height="400px" src="https://ejep.com.br/wp-content/uploads/2023/12/tipos-de-empreendedorismo.png" class="d-block w-100" alt="...">
             </div>
         </div>
@@ -79,15 +111,24 @@ $courses = $useCase->execute();
         
         <div class="container my-5">
             <div class="d-flex flex-wrap justify-content-start gap-3">
-                <!-- Card 1 -->
-                <div class="card" style="width: 18rem;">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">Card 1</h5>
-                        <p class="card-text">Texto do card 1.</p>
-                        <a href="#" class="btn btn-primary">Saiba mais</a>
+                
+                <?php foreach ($courses as $course): ?>
+                    <div class="card" style="width: 18rem;">
+                        <img src=" <?= $course->image ?> " class="card-img-top" alt="..." style="max-height: 150px; object-fit: cover;">
+                        <div class="card-body">
+                            <h5 class="card-title"> <?= $course->title ?> </h5>
+                            <p class="card-text" style="min-height: 50px;"> <?= $course->description ?> </p>
+                            <button type="button" class="btn btn-success">VER CURSO</button>
+                        </div>
                     </div>
+                <?php endforeach ?>
+
+                <div onclick="(window.location='http://localhost:8080/api/courses/create.php')" class="add-new-course d-flex align-items-center justify-content-center text-center" style="width: 18rem; color: gray; font-weight: bolder; font-size: large; cursor: pointer;">
+                    + <br>
+                    Adiciona <br>
+                    Curso <br>
                 </div>
+
             </div>
         </div>
 

@@ -13,3 +13,5 @@ $useCase = new UpdateCourseUseCase(new CourseRepositoryPostgress());
 $out = $useCase->execute('2', 'Title Updated', "Updated !! <script>alert('XSS');</script>", '123123213ndsjkbaskhdjfhbqwj');
 
 var_dump($out);
+
+//TODO: FAZER FRONT
