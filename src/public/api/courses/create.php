@@ -54,6 +54,10 @@
                 <textarea class="form-control" id="description" name="description" rows="4" required placeholder="Digite a descrição do curso"></textarea>
             </div>
             <div class="mb-3">
+                <label for="url" class="form-label">Link do Curso</label>
+                <input class="form-control" id="url" name="url" rows="4" required placeholder="Digite ou cole o link do curso">
+            </div>
+            <div class="mb-3">
                 <label for="image" class="form-label">Imagem</label>
                 <input type="file" class="form-control" id="image" name="image" accept="image/*" onchange="convertToBase64(event)" required>
                 <input type="hidden" id="imageBase64" name="imageBase64">

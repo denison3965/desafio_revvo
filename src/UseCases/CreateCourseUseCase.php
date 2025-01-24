@@ -16,9 +16,10 @@ class CreateCourseUseCase
     public function execute(
         string $title,
         string $description,
-        string $image
+        string $image,
+        string $url
     ) {
-        $course = new CourseEntity($title, $description, $image);
+        $course = new CourseEntity($title, $description, $image, $url);
         $this->repository->create($course);
         return true;
     }

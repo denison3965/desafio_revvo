@@ -32,6 +32,10 @@ $courses = $useCase->execute();
                 objReader.readAsDataURL(file);
             }
         }
+
+        function openLink(link) {
+            window.open(link, '_blank');
+        }
     </script>
 
 </head>
@@ -118,12 +122,12 @@ $courses = $useCase->execute();
                         <div class="card-body">
                             <h5 class="card-title"> <?= $course->title ?> </h5>
                             <p class="card-text" style="min-height: 50px;"> <?= $course->description ?> </p>
-                            <button type="button" class="btn btn-success">VER CURSO</button>
+                            <button onclick="openLink(' <?= $course->url ?> ')" type="button" class="btn btn-success">VER CURSO</button>
                         </div>
                     </div>
                 <?php endforeach ?>
 
-                <div onclick="(window.location='http://localhost:8080/api/courses/create.php')" class="add-new-course d-flex align-items-center justify-content-center text-center" style="width: 18rem; color: gray; font-weight: bolder; font-size: large; cursor: pointer;">
+                <div onclick="(window.location.href='http://localhost:8080/api/courses/create.php')" class="add-new-course d-flex align-items-center justify-content-center text-center" style="width: 18rem; color: gray; font-weight: bolder; font-size: large; cursor: pointer;">
                     + <br>
                     Adiciona <br>
                     Curso <br>

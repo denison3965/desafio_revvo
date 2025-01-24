@@ -17,11 +17,13 @@ class UpdateCourseUseCase
         string $title,
         string $description,
         string $image,
+        string $url
     ): bool {
         $result = $this->repository->update($id, new CourseEntity(
             $title,
             $description,
-            $image
+            $image,
+            $url
         ));
 
         return $result;
